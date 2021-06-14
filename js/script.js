@@ -215,47 +215,26 @@ let appData = {
         buttonTagOne.style.display = '';
         buttonTagTwo.style.display = '';
 
-        for(let key in appData){
-            appData[key = 'budget'] = 0;
-            appData[key = 'incomeMonth'] = 0;
-            appData[key = 'percentDeposit'] = 0;
-            appData[key = 'moneyDeposit'] = 0;
-            appData[key = 'expensesMonth'] = 0;
-            appData[key = 'periodSelects'] = 0;
-            appData[key = 'budgetMonth'] = 0;
-
-            for(let event in appData.income){
-                delete appData.income[event]
-                // appData.income[event] = 0;
-                // console.log(event);
-                // event[appData] = '';
-            }
-            for(let event in appData.expenses){
-                delete appData.expenses[event]
-                // appData.expenses[event] = 0;
-                // event = '';
-            }
-
-            // appData[key =  appData.incomeMonth] = 0;
-            // console.log(appData);
-        }
-
-        // appData.incomeMonth = 0,
-        // appData.percentDeposit =  0;
-        // appData.moneyDeposit =  0;
-        // appData.budget =  0;
-        // appData.budgetMonth =  0;
-        // appData.expensesMonth =  0;
-        // appData.periodSelects =  0;
-        // appData.incomeItems = 0;
-        // appData.expensesItems = 0;
+        this.budget = 0;
+        this.income = {};
+        this.addIncome = [];
+        this.expenses = {};
+        this.addExpenses = [];
+        this.incomeMonth = 0;
+        this.deposit = false;
+        this.persentDeposite = 0;
+        this.moneyDeposite = 0;
+        this.budgetDay = 0;
+        this.budgetMonth = 0;
+        this.expensesMonth = 0;
+        console.log(this);
     }
 
 };
 
 button.addEventListener('click',  appData.start.bind(appData));
 button.addEventListener('click', appData.blocking);
-buttonCancel.addEventListener('click', appData.resets);
+buttonCancel.addEventListener('click', appData.resets.bind(appData));
 buttonTagTwo.addEventListener('click', appData.addExpensesBlock);
 buttonTagOne.addEventListener('click', appData.addIncomeBlock);
 periodSelect.addEventListener('input', appData.addPeriodSelect);
